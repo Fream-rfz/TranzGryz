@@ -3,57 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости</title>
     <style>
-        ul {
-            list-style-type: none;
-            padding: 0;
+        /* Общий стиль страницы */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        li {
-            margin-right: 20px;
-        }
-        a {
-            text-decoration: none;
-            color: #000;
-        }
-        a:hover {
-            color: #007BFF;
-        } 
-        .text-container {
-            width: 600px;
-            height: 200px;
-            border: 1px solid #ccc;
-            overflow: hidden;
-            padding: 10px;
-            text-overflow: ellipsis;
-        }  
-        .flex-container {
-            display: flex;
-        }
-        img {
-            width: 200px;
-        }
+
+        /* Контейнер калькулятора */
         .calculator {
-            clear: both; /* Это переместит элемент на новую строку */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Заголовок калькулятора */
+        .calculator h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Метки для полей ввода */
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        /* Поля ввода и выпадающий список */
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Кнопка расчета */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Блок результата */
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <ul>
-        <li><a href="#">Используемый транспорт</a></li>
-        <li><a href="#">Контакты</a></li>
-        <li><a href="#">Дополнительная ссылка</a></li>
-    </ul>
-    <h1> ГрузТранс</h1>
-    <div class="flex-container">
-        <img src="images/gruztrans-logo.png" alt="ГрузТранс логотип">
-        <div class="text-container">
-            <p>Транспортная компания "ГрузТранс" является надежным партнером в области грузоперевозок, предлагая своим клиентам широкий спектр услуг по доставке товаров по всей стране и за ее пределами. Наша компания была основана в 2010 году и за время своего существования зарекомендовала себя как лидирующий игрок на рынке логистики благодаря высокому качеству обслуживания и индивидуальному подходу к каждому клиенту.</p>
-        </div>
+    <div class="calculator">
+        <h1>Калькулятор стоимости</h1>
+        
+        <!-- Выбор тарифа -->
+        <label for="tariff">Выберите тариф:</label>
+        <select id="tariff">
+            <option value="40">Город (40 рублей/км)</option>
+            <option value="80">Область (80 рублей/км)</option>
+        </select>
+
+        <!-- Ввод расстояния -->
+        <label for="distance">Расстояние (в км):</label>
+        <input type="number" id="distance" placeholder="Введите расстояние" min="1" required>
+
+        <!-- Ввод времени загрузки -->
+        <label for="loadingTime">Время загрузки (в часах):</label>
+        <input type="number" id="loadingTime" placeholder="Введите время загрузки" min="0" step="0.1" required>
+
+        <!-- Ввод количества точек -->
+        <label for="points">Количество точек (1 точка бесплатно, остальные по 400 рублей):</label>
+        <input type="number" id="points" placeholder="Введите количество точек" min="1" required>
+
+        <!-- Флажок для круговой поездки -->
+        <label for="roundTrip">Круговая поездка:</label>
+        <input type="checkbox" id="roundTrip">
+
+        <!-- Кнопка для расчета -->
+        <button id="calculateBtn">Рассчитать стоимость</button>
+
+        <!-- Блок для отображения результата -->
+        <h2 id="result"></h2>
     </div>
-  
-   <p class="calculator">Так же мы предлагаем рассчитать стоимость доставки с помощью нашего калькулятора
-    <button>Рассчитать</button></p>
-     
+
+    <!-- Подключение внешнего JS-файла -->
+    <script src="index.js"></script>
 </body>
 </html>
