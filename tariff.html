@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        li {
+            margin-right: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        a:hover {
+            color: #007BFF;
+        } 
+        .text-container {
+            width: 600px;
+            height: 200px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            padding: 10px;
+            text-overflow: ellipsis;
+        }  
+        .flex-container {
+            display: flex;
+        }
+        img {
+            width: 200px;
+        }
+        .calculator {
+            clear: both; /* Это переместит элемент на новую строку */
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Используемый транспорт</a></li>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">Дополнительная ссылка</a></li>
+    </ul>
+    <h1> ГрузТранс</h1>
+    <div class="flex-container">
+        <img src="images/gruztrans-logo.png" alt="ГрузТранс логотип">
+        <div class="text-container">
+            <p>Транспортная компания "ГрузТранс" является надежным партнером в области грузоперевозок, предлагая своим клиентам широкий спектр услуг по доставке товаров по всей стране и за ее пределами. Наша компания была основана в 2010 году и за время своего существования зарекомендовала себя как лидирующий игрок на рынке логистики благодаря высокому качеству обслуживания и индивидуальному подходу к каждому клиенту.</p>
+        </div>
+    </div>
+  
+   <p class="calculator">Так же мы предлагаем рассчитать стоимость доставки с помощью нашего калькулятора
+    <button>Рассчитать</button></p>
+     
+</body>
+</html>
